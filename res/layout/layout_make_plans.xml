@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/makePlans_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/makePlans_date" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dip"
+        android:text="@string/makePlans_todayPlan"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:id="@+id/makePlans_plan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textSize="15sp"
+            android:text="@string/makePlans_run" />
+
+        <EditText
+            android:id="@+id/makePlans_minutes"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:layout_weight="1"
+            android:inputType="number" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:text="@string/makePlans_minutes" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/makePlans_new"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dip"
+            android:layout_weight="1"
+            android:text="@string/makePlans_new" />
+
+        <Button
+            android:id="@+id/makePlans_save"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dip"
+            android:layout_weight="1"
+            android:text="@string/makePlans_save" />
+
+        <Button
+            android:id="@+id/makePlans_edit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dip"
+            android:layout_weight="1"
+            android:text="@string/makePlans_edit" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/makePlans_todayPlanCompleted"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textSize="15sp"
+            android:text="@string/makePlans_ran" />
+
+        <TextView
+            android:id="@+id/makePlans_kilometer_ran"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:text="@string/makePlans_kilometer" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textSize="15sp"
+            android:text="@string/makePlans_ran" />
+
+        <TextView
+            android:id="@+id/makePlans_minutes_ran"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:text="@string/makePlans_minutes" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:textSize="15sp"
+            android:text="@string/makePlans_consume" />
+
+        <TextView
+            android:id="@+id/makePlans_calorie_consumed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="15sp"
+            android:text="@string/makePlans_calorie" />
+    </LinearLayout>
+
+</LinearLayout>

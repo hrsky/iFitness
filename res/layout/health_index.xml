@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:background="#70000000"
+        android:id="@+id/Linear1">
+        
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/health_index"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:layout_below="@id/Linear1"
+        android:id="@+id/Linear2">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weight_index"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <LinearLayout 
+		        android:layout_width="fill_parent"
+	    		android:layout_height="wrap_content"
+	    		android:padding="5dp"
+	    		android:orientation="horizontal">
+		        <TextView 
+		            android:layout_width="wrap_content"
+	    			android:layout_height="wrap_content"
+	    			android:textSize="18sp"
+	    			android:text="@string/body_high"/>
+		        <EditText 
+		            android:id="@+id/tool_bim_bodyhigh"
+		            android:layout_width="0dip"
+	    			android:layout_height="wrap_content"
+	    			android:layout_weight="1"
+	    			android:inputType="number" />
+		        <TextView 
+		            android:layout_width="wrap_content"
+	    			android:layout_height="wrap_content"
+	    			android:textSize="18sp"
+	    			android:text="@string/body_cm"/>
+        </LinearLayout>
+        
+        <LinearLayout 
+		        android:layout_width="fill_parent"
+	    		android:layout_height="wrap_content"
+	    		android:padding="5dp"
+	    		android:orientation="horizontal">
+		        <TextView 
+		            android:layout_width="wrap_content"
+	    			android:layout_height="wrap_content"
+	    			android:textSize="18sp"
+	    			android:text="@string/body_weight"/>
+		        <EditText 
+		            android:id="@+id/tool_bim_bodyweight"
+		            android:layout_width="0dip"
+	    			android:layout_height="wrap_content"
+	    			android:layout_weight="1"
+	    			android:inputType="number" />
+		        <TextView 
+		            android:layout_width="wrap_content"
+	    			android:layout_height="wrap_content"
+	    			android:textSize="18sp"
+	    			android:text="@string/body_kg"/>
+        </LinearLayout>
+        
+        <Button
+            android:id="@+id/cal_bmi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/btn_start" />
+        
+        <LinearLayout 
+		        android:id="@+id/tool_bmi_resultplan"
+		        android:layout_width="fill_parent"
+	   			android:layout_height="wrap_content"
+	   			android:layout_gravity="center_horizontal"
+	   			android:layout_marginTop="5dp"
+	   			android:layout_marginBottom="5dp"
+	   			android:visibility="gone"
+		   		android:background="#70ffffff" >
+		        <TextView 
+		            android:layout_width="wrap_content"
+		   			android:layout_height="wrap_content"
+		   			android:padding="5dp"
+		   			android:textColor="#FF0000"
+		   			android:textSize="13sp"
+		   			android:layout_gravity="center_vertical|center_horizontal"
+		   			android:text="@string/tool_bmi_result"/>
+		        <TextView 
+		            android:id="@+id/tool_bmi_result"
+		            android:layout_width="wrap_content"
+		   			android:layout_height="wrap_content"
+		   			android:padding="5dp"
+		   			android:layout_gravity="center_vertical|center_horizontal"
+		   			android:textColor="#FF0000"
+		   			android:textSize="18sp"/>
+		    </LinearLayout>
+		    
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:layout_below="@id/Linear2"
+        android:id="@+id/Linear3"
+        android:layout_marginTop="30dp">
+        
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/heart_index"
+            android:layout_gravity="center_horizontal"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+        
+        <LinearLayout 
+		        android:layout_width="fill_parent"
+	    		android:layout_height="wrap_content"
+	    		android:padding="5dp"
+	    		android:orientation="horizontal">
+		        <TextView 
+		            android:layout_width="wrap_content"
+	    			android:layout_height="wrap_content"
+	    			android:textSize="18sp"
+	    			android:text="@string/age"/>
+		        <EditText 
+		            android:id="@+id/tool_bim_age"
+		            android:layout_width="0dip"
+	    			android:layout_height="wrap_content"
+	    			android:layout_weight="1"
+	    			android:inputType="number" />
+		        <TextView 
+		            android:layout_width="wrap_content"
+	    			android:layout_height="wrap_content"
+	    			android:textSize="18sp"
+	    			android:text="@string/body_age"/>
+        </LinearLayout>
+        
+        <Button
+            android:id="@+id/cal_heart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cal_heart" 
+            android:layout_gravity="center_horizontal"/>
+        
+        <LinearLayout 
+		        android:id="@+id/tool_heart_resultplan"
+		        android:layout_width="fill_parent"
+	   			android:layout_height="wrap_content"
+	   			android:layout_gravity="center_horizontal"
+	   			android:layout_marginTop="5dp"
+	   			android:layout_marginBottom="5dp"
+	   			android:visibility="gone"
+		   		android:background="#70ffffff"
+		   		android:orientation="horizontal" >
+		   			<TextView 
+			            android:layout_width="wrap_content"
+			   			android:layout_height="wrap_content"
+			   			android:padding="5dp"
+			   			android:textColor="#FF0000"
+			   			android:textSize="13sp"
+			   			android:layout_gravity="center_vertical|center_horizontal"
+			   			android:text="@string/heart_result1"/>
+		   			
+			        <TextView 
+			            android:id="@+id/tool_heart_result1"
+			            android:layout_width="wrap_content"
+			   			android:layout_height="wrap_content"
+			   			android:padding="5dp"
+			   			android:layout_gravity="center_vertical|center_horizontal"
+			   			android:textColor="#FF0000"
+			   			android:textSize="13sp"/>
+			        <TextView 
+			            android:layout_width="wrap_content"
+			   			android:layout_height="wrap_content"
+			   			android:padding="5dp"
+			   			android:textColor="#FF0000"
+			   			android:textSize="13sp"
+			   			android:layout_gravity="center_vertical|center_horizontal"
+			   			android:text="@string/heart_result2"/>
+			        <TextView 
+			            android:id="@+id/tool_heart_result2"
+			            android:layout_width="wrap_content"
+			   			android:layout_height="wrap_content"
+			   			android:padding="5dp"
+			   			android:layout_gravity="center_vertical|center_horizontal"
+			   			android:textColor="#FF0000"
+			   			android:textSize="13sp"/>
+			        <TextView 
+			            android:layout_width="wrap_content"
+			   			android:layout_height="wrap_content"
+			   			android:padding="5dp"
+			   			android:textColor="#FF0000"
+			   			android:textSize="13sp"
+			   			android:layout_gravity="center_vertical|center_horizontal"
+			   			android:text="@string/heart_result3"/>
+		    </LinearLayout>
+        
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Linear3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" >
+
+        <Button
+            android:id="@+id/health_explain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/health_explain" />
+
+    </LinearLayout>
+    
+</RelativeLayout>

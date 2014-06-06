@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:layout_weight="1"
+    	android:orientation="horizontal">
+    	
+        <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="match_parent"
+        	android:gravity="center"
+        	android:textSize="20sp"
+        	android:text="@string/calSteps_numOfSteps" />
+        
+        <TextView
+        	android:id="@+id/calSteps_numOfSteps"
+        	android:layout_width="wrap_content"
+        	android:layout_height="match_parent"
+        	android:gravity="center"
+        	android:textSize="20sp"
+        	android:text="" />
+        
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:layout_weight="1"
+    	android:orientation="horizontal">
+    	
+        <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="match_parent"
+        	android:gravity="center"
+        	android:textSize="20sp"
+        	android:text="@string/calSteps_time" />
+        
+        <TextView
+        	android:id="@+id/calSteps_time"
+        	android:layout_width="wrap_content"
+        	android:layout_height="match_parent"
+        	android:gravity="center"
+        	android:textSize="20sp"
+        	android:text="" />
+        
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:layout_width="match_parent"
+    	android:layout_height="match_parent"
+    	android:layout_weight="1"
+    	android:orientation="horizontal">
+    	
+        <TextView
+        	android:layout_width="wrap_content"
+        	android:layout_height="match_parent"
+        	android:gravity="center"
+        	android:textSize="20sp"
+        	android:text="@string/calSteps_calorie" />
+        
+        <TextView
+        	android:id="@+id/calSteps_calorie"
+        	android:layout_width="wrap_content"
+        	android:layout_height="match_parent"
+        	android:gravity="center"
+        	android:textSize="20sp"
+        	android:text="" />
+        
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/calSteps_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:layout_margin="20dip"
+        android:text="@string/calSteps_start" />
+	
+</LinearLayout>
