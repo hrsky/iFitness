@@ -54,6 +54,7 @@ public class CalorieInfo {
 		calendar.setTime(new Date());
 		setTime(calendar);
 		setSteps(0);
+		setCalorie(0);
 	}
 
 	public boolean IsToday() {

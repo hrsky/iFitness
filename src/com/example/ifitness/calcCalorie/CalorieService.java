@@ -14,7 +14,6 @@ import android.os.IBinder;
 import android.os.Message;
 
 import com.example.ifitness.CalorieSQLite;
-import com.example.ifitness.Utils;
 
 public class CalorieService extends Service {
 	public static int UpdateSQLiteMillisecond;

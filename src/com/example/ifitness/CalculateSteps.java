@@ -80,7 +80,7 @@ public class CalculateSteps extends Activity{
 					calStepStart.setText("开始");
 					service.setSteps(0);
 					service.setCalorie(0);
-					calSteps_time.setText("0:0");
+					calSteps_time.setText("00:00");
 				}
 			}
 		};
@@ -94,6 +94,9 @@ public class CalculateSteps extends Activity{
 						service.StopCalc();
 						calStepStart.setText("开始");
 					} else {
+						service.setSteps(0);
+						service.setCalorie(0);
+						calSteps_time.setText("00:00");
 						service.StartCalc();
 						calStepStart.setText("暂停");
 					}
