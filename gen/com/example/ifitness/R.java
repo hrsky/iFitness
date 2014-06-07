@@ -27,7 +27,7 @@ public final class R {
         public static final int Linear1=0x7f080009;
         public static final int Linear2=0x7f08000a;
         public static final int Linear3=0x7f080010;
-        public static final int action_settings=0x7f080024;
+        public static final int action_settings=0x7f08002a;
         public static final int btn_back_healthindex=0x7f080008;
         public static final int calSteps_calorie=0x7f080019;
         public static final int calSteps_numOfSteps=0x7f080017;
@@ -48,6 +48,12 @@ public final class R {
         public static final int makePlans_new=0x7f08001e;
         public static final int makePlans_plan=0x7f08001c;
         public static final int makePlans_save=0x7f08001f;
+        public static final int note_listview=0x7f080029;
+        public static final int noteitem_bufunumber=0x7f080025;
+        public static final int noteitem_calorienumber=0x7f080026;
+        public static final int noteitem_day=0x7f080024;
+        public static final int noteitem_text=0x7f080028;
+        public static final int noteitem_time=0x7f080027;
         public static final int personInfo=0x7f080000;
         public static final int record=0x7f080003;
         public static final int textView1=0x7f080005;
@@ -68,6 +74,8 @@ public final class R {
         public static final int health_index=0x7f030002;
         public static final int layout_calculate_steps=0x7f030003;
         public static final int layout_make_plans=0x7f030004;
+        public static final int note_item=0x7f030005;
+        public static final int note_list=0x7f030006;
     }
     public static final class menu {
         public static final int main=0x7f070000;
@@ -110,8 +118,11 @@ public final class R {
         public static final int makePlans_save=0x7f050013;
         public static final int makePlans_todayPlan=0x7f05000d;
         public static final int makePlans_todayPlanCompleted=0x7f050011;
+        public static final int name_calorie=0x7f05002b;
+        public static final int name_frequency=0x7f05002a;
         public static final int personInfo=0x7f050002;
         public static final int record=0x7f05000b;
+        public static final int tim=0x7f05002c;
         public static final int tool_bmi_result=0x7f05001f;
         public static final int weight_index=0x7f050018;
         public static final int weight_index_explain=0x7f050027;

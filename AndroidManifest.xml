@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="18" />
+        android:targetSdkVersion="17" />
 
     <application
         android:allowBackup="true"
@@ -36,12 +36,9 @@
     	<activity 
     	    android:name="com.example.ifitness.Health_explain">
     	</activity>
-    	<receiver android:name="com.example.core.CalorieSystemBoot">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
-            </intent-filter>
-        </receiver>
-        <service android:name="com.example.core.CalorieManager"></service>
+		<activity android:name="com.example.note.NoteListActivity"></activity>
+    	<service android:name="com.example.core.CalorieManager"></service>
+    	
     </application>
 
 </manifest>
