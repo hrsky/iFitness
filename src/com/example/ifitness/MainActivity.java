@@ -1,5 +1,7 @@
 package com.example.ifitness;
 
+import java.util.Calendar;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -57,6 +59,23 @@ public class MainActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+		
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		String str = Utils.getCurrentDate();
+		Calendar calendar = Calendar.getInstance();
+		int hour = calendar.get(Calendar.HOUR_OF_DAY);
+		if (hour < 12 && hour >= 8){
+			str += "，早上好！";
+		}else if (hour >=12 && hour < 18){
+			str += "，中午好！";
+		}else{
+			str += "，晚上好！";
+		}
+		personInfo.setText(str);
 	}
 
 	@Override
