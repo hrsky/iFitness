@@ -1,26 +1,29 @@
 package com.example.ifitness;
 
-import java.util.Calendar;
-import java.util.Date;
-
-import com.example.core.CalorieInfo;
-import com.example.core.CalorieManager;
-import com.example.core.OnCalorieEventListener;
-
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.ifitness.calcCalorie.CalorieInfo;
+import com.example.ifitness.calcCalorie.CalorieService;
+import com.example.ifitness.calcCalorie.CalorieService.CalorieServiceBinder;
+import com.example.ifitness.calcCalorie.OnCalorieChangeListener;
+
 public class CalculateSteps extends Activity{
-	Button calStepStart;
-	TextView calSteps_numOfSteps;
-	TextView calSteps_time;
-	TextView calSteps_calorie;
-	Intent intent;
+	private Button calStepStart;
+	private TextView calSteps_numOfSteps;
+	private TextView calSteps_time;
+	private TextView calSteps_calorie;
+	private ServiceConnection conn;
+	private CalorieService service;
+	private OnCalorieChangeListener listener;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,48 +34,80 @@ public class CalculateSteps extends Activity{
 		calSteps_time  = (TextView) findViewById(R.id.calSteps_time);
 		calSteps_calorie=(TextView)this.findViewById(R.id.calSteps_calorie);
 		calSteps_numOfSteps=(TextView)this.findViewById(R.id.calSteps_numOfSteps);
-		if (CalorieManager.IsRun()) {
-			calStepStart.setText("‘›Õ£");
-		}
-		else {
-			calStepStart.setText("ø™ º");
-		}
-		
 		
 		calSteps_numOfSteps.setText(0+"");
-		calSteps_time.setText("00:00");
+		calSteps_time.setText(0+"");
 		calSteps_calorie.setText(0+"");
 		
-//		calStepStart.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View arg0) {
-//				// TODO Auto-generated method stub
-//		        
-//				if (CalorieManager.IsRun()) {
-//					calStepStart.setText("ø™ º");
-//					stopService(intent);
-//				} else {
-//					calStepStart.setText("‘›Õ£");
-//					startService(intent);
-//				}
-//			}
-//		});
-		
-		if (CalorieManager.userInfo==null)  return;
-		CalorieManager.userInfo.calorieInfo.setOnCalorieEventListener(new OnCalorieEventListener()
-		{
-			public void onFrequencyChange(CalorieInfo calorieInfo)
-			{
-				calSteps_numOfSteps.setText(calorieInfo.getFrequency()+"");
-				calSteps_time.setText(calorieInfo.getTime()+"");
+		listener = new OnCalorieChangeListener() {
+			
+			@Override
+			public void onStepsChange(CalorieInfo calorieInfo) {
+				calSteps_numOfSteps.setText(String.valueOf(calorieInfo.getSteps()));
 			}
-			public void onCalorieChange(CalorieInfo calorieInfo)
-			{
-				calSteps_calorie.setText(calorieInfo.getCalorie()+"");
+			
+			@Override
+			public void onCalorieChange(CalorieInfo calorieInfo) {
+				calSteps_calorie.setText(String.valueOf(calorieInfo.getCalorie()));
+			}
+
+			@Override
+			public void onTimeChange(CalorieInfo calorieInfo) {
+				calSteps_time.setText(calorieInfo.getTime());
+			}
+		};
+		
+		conn = new ServiceConnection() {
+			
+			@Override
+			public void onServiceDisconnected(ComponentName name) {
+				service.removeCalorieChangeListener(listener);
+				service = null;
+			}
+			
+			@Override
+			public void onServiceConnected(ComponentName name, IBinder serv) {
+				CalorieService.CalorieServiceBinder binder = (CalorieServiceBinder)serv;
+				service = binder.getService();
+				service.addOnCalorieChangeListener(listener);
 				
+				if (service.IsRun()){
+					calStepStart.setText("ÊöÇÂÅú");
+					calSteps_numOfSteps.setText(String.valueOf(service.getSteps()));
+					calSteps_calorie.setText(String.valueOf(service.getCalorie()));
+					calSteps_time.setText(service.getTime());
+				} else {
+					calStepStart.setText("ÂºÄÂßã");
+					service.setSteps(0);
+					service.setCalorie(0);
+					calSteps_time.setText("0:0");
+				}
+			}
+		};
+		
+		calStepStart.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View arg0) {
+				if (service != null) {
+					if (service.IsRun()) {
+						service.StopCalc();
+						calStepStart.setText("ÂºÄÂßã");
+					} else {
+						service.StartCalc();
+						calStepStart.setText("ÊöÇÂÅú");
+					}
+				}
 			}
 		});
+		
+		Intent bintent = new Intent(this, CalorieService.class);
+		bindService(bintent, conn, BIND_AUTO_CREATE);
 	}
 	
+	@Override
+	protected void onDestroy() {
+		unbindService(conn);
+		super.onDestroy();
+	}
 }

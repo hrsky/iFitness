@@ -30,15 +30,20 @@
     	<activity 
     	    android:name="com.example.ifitness.MakePlans">
     	</activity>
+    	
     	<activity 
     	    android:name="com.example.ifitness.HealthIndex">
     	</activity>
+    	
     	<activity 
     	    android:name="com.example.ifitness.Health_explain">
     	</activity>
-		<activity android:name="com.example.note.NoteListActivity"></activity>
-    	<service android:name="com.example.core.CalorieManager"></service>
     	
+    	<activity 
+    	    android:name="com.example.ifitness.NoteListActivity">
+    	</activity>
+    	
+        <service android:name="com.example.ifitness.calcCalorie.CalorieService"></service>
     </application>
 
 </manifest>
