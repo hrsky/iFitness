@@ -36,6 +36,12 @@
     	<activity 
     	    android:name="com.example.ifitness.Health_explain">
     	</activity>
+    	<receiver android:name="com.example.core.CalorieSystemBoot">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"></action>
+            </intent-filter>
+        </receiver>
+        <service android:name="com.example.core.CalorieManager"></service>
     </application>
 
 </manifest>
