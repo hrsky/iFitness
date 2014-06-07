@@ -71,8 +71,8 @@ public class CalorieManager extends Service{
 	}
 	private void ManagerInit()
 	{
-		UpdateSQLiteMillisecond=60000;
-		UpdateWidgetMillisecond=10000;
+		UpdateSQLiteMillisecond=6000;
+		UpdateWidgetMillisecond=1000;
 		
 		mUpdateSQLiteThread=new Thread(mUpdateSQLRunnable);
 		mUpdateSQLiteThread.start();

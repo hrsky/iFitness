@@ -1,7 +1,6 @@
 package com.example.ifitness;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -9,9 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MakePlans extends Activity {
-	public static final String SHAREDPREFERENCES_NAME = "plans";
 	private LinearLayout layout;
 	private TextView tv_date;
 	private EditText et_minutes;
@@ -49,13 +48,8 @@ public class MakePlans extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				String minutes = et_minutes.getText().toString();
-				if (minutes.matches("[0-9]+")){
-					SharedPreferences sp = getSharedPreferences(SHAREDPREFERENCES_NAME, MODE_PRIVATE);
-					SharedPreferences.Editor editor = sp.edit();
-					editor.putString("currentDate", Utils.getCurrentDate());
-					editor.putString("minutes", minutes);
-					editor.commit();
+				if (et_minutes.getText().toString().matches("[0-9]+")){
+					//TODO
 					et_minutes.setEnabled(false);
 				}
 			}
@@ -70,24 +64,6 @@ public class MakePlans extends Activity {
 				}
 			}
 		});
-		
-	}
-	
-	@Override
-	protected void onResume() {
-		super.onResume();
-		String str = Utils.getCurrentDate();
-		tv_date.setText(str);
-		
-		SharedPreferences sp = getSharedPreferences(SHAREDPREFERENCES_NAME, MODE_PRIVATE);
-		String currentDate = sp.getString("currentDate", null);
-		if (!currentDate.equals(Utils.getCurrentDate())){
-			layout.setVisibility(View.GONE);
-		}else{
-			et_minutes.setText(sp.getString("minutes", ""));
-			et_minutes.setEnabled(false);
-			layout.setVisibility(View.VISIBLE);
-		}
 	}
 
 }

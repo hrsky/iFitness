@@ -47,6 +47,7 @@ public class CalorieListener implements SensorEventListener {
 				{
 					int frequency=mCalorieInfo.getFrequency();
 					mCalorieInfo.setFrequency(++frequency);
+					mCalorieInfo.setTime(null);
 				}
 			}
 			for(int i=0;i<3;i++)

@@ -43,4 +43,7 @@
 	<string name="weight_index_explain">体重指数（BMI）：\n\t\tBMI[Body Mass Index]即BMI指数，也叫身体质量指数，是衡量是否肥胖和标准体重的重要指标。 计算适用范围：18岁至65岁的人士。儿童、发育中的青少年、孕妇、乳母、老人及身型健硕的运动员除外。世界卫生组织认为BMI指数保持在22左右是比较理想的。附：BMI小于18.5(轻体重)；BMI值18.5至24(健康体重)；BMI值24至28(超重)；BMI大于28(肥胖)；</string>
 	<string name="heart_index_explain">有氧运动减肥心率：\n\t\t有氧运动就是燃烧脂肪的减肥运动，需要满足下面三个必要条件：\n\t\t1、该运动要达到中低强度的运动心率；\n\t\t2、这种中低轻度运动心率的运动要持续20分钟以上；\n\t\t3、这种运动必须是大肌肉群的运动，如慢跑、游泳、健身操等。\n\t\t使用上面的计算器，马上得到适合您的中低强度运动心率，低于这个范围或者高于这个范围，都不是以燃烧脂肪供能为主，减脂效果略差。</string>
 	<string name="btn_back">返回</string>
+	<string name="name_frequency">步数:</string>
+	<string name="name_calorie">卡路里:</string>
+	<string name="tim">时长:</string>
 </resources>

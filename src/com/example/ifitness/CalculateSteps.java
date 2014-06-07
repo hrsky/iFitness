@@ -1,5 +1,8 @@
 package com.example.ifitness;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import com.example.core.CalorieInfo;
 import com.example.core.CalorieManager;
 import com.example.core.OnCalorieEventListener;
@@ -23,32 +26,38 @@ public class CalculateSteps extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_calculate_steps);
-		intent = new Intent(this, CalorieManager.class);
-		this.startService(intent);
 		
 		calStepStart = (Button) findViewById(R.id.calSteps_start);
 		calSteps_time  = (TextView) findViewById(R.id.calSteps_time);
 		calSteps_calorie=(TextView)this.findViewById(R.id.calSteps_calorie);
 		calSteps_numOfSteps=(TextView)this.findViewById(R.id.calSteps_numOfSteps);
+		if (CalorieManager.IsRun()) {
+			calStepStart.setText("‘›Õ£");
+		}
+		else {
+			calStepStart.setText("ø™ º");
+		}
+		
 		
 		calSteps_numOfSteps.setText(0+"");
-		calSteps_time.setText(0+"");
+		calSteps_time.setText("00:00");
 		calSteps_calorie.setText(0+"");
 		
-		calStepStart.setOnClickListener(new OnClickListener() {
-			
-			@Override
-			public void onClick(View arg0) {
-				// TODO Auto-generated method stub
-				if (CalorieManager.IsRun()) {
-					calStepStart.setText("ÂºÄÂßã");
-					stopService(intent);
-				} else {
-					calStepStart.setText("ÊöÇÂÅú");
-					startService(intent);
-				}
-			}
-		});
+//		calStepStart.setOnClickListener(new OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View arg0) {
+//				// TODO Auto-generated method stub
+//		        
+//				if (CalorieManager.IsRun()) {
+//					calStepStart.setText("ø™ º");
+//					stopService(intent);
+//				} else {
+//					calStepStart.setText("‘›Õ£");
+//					startService(intent);
+//				}
+//			}
+//		});
 		
 		if (CalorieManager.userInfo==null)  return;
 		CalorieManager.userInfo.calorieInfo.setOnCalorieEventListener(new OnCalorieEventListener()
@@ -56,10 +65,12 @@ public class CalculateSteps extends Activity{
 			public void onFrequencyChange(CalorieInfo calorieInfo)
 			{
 				calSteps_numOfSteps.setText(calorieInfo.getFrequency()+"");
+				calSteps_time.setText(calorieInfo.getTime()+"");
 			}
 			public void onCalorieChange(CalorieInfo calorieInfo)
 			{
 				calSteps_calorie.setText(calorieInfo.getCalorie()+"");
+				
 			}
 		});
 	}
